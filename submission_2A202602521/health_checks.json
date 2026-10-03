@@ -1,0 +1,29 @@
+{
+  "parameters": 47879,
+  "logits_shape": [
+    20,
+    7
+  ],
+  "all_parameter_gradients_nonzero": true,
+  "overfit20_loss": 4.3928430386586115e-06,
+  "torch_version": "2.11.0+cu130",
+  "gpu": "Tesla T4",
+  "activation_stats": {
+    "he": [
+      0.3901596665382385,
+      0.3663930296897888
+    ],
+    "xavier": [
+      0.16283899545669556,
+      0.12485834956169128
+    ],
+    "normal": [
+      0.02027329057455063,
+      0.0021539421286433935
+    ],
+    "zeros": [
+      0.0,
+      0.0
+    ]
+  }
+}

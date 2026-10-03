@@ -7,3 +7,11 @@ data/processed/
 *.pt
 *.pth
 *.ckpt
+.venv/
+.vscode/
+/artifact_support/
+/colab_download/
+/colab_code_patch.zip
+/colab_results.zip
+/colab_verified.zip
+/submission_MSSV.zip

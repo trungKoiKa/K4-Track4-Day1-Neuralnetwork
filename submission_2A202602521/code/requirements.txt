@@ -1,0 +1,11 @@
+# Tested on Google Colab with PyTorch 2.11.0+cu130 and Tesla T4.
+# Keep Colab's installed GPU build of PyTorch.
+torch>=2.1
+numpy
+pandas
+scikit-learn
+matplotlib
+openpyxl
+nbformat
+nbconvert
+ipykernel
