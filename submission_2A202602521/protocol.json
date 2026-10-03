@@ -1,0 +1,43 @@
+{
+  "created_utc": "2026-10-03T09:17:12Z",
+  "prior_eval_seen": true,
+  "reason": "Repair rubric compliance, not tune to eval scores.",
+  "selection": "maximum validation macro-F1 at minimum validation-loss epoch; tie: exp_id",
+  "baseline_lr_grid": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "adam_lr_grid": [
+    0.0003,
+    0.001,
+    0.003
+  ],
+  "hypotheses": {
+    "baseline": "SGD momentum: lr thấp học chậm, lr cao có thể dao động; chọn lr bằng F1 val tại epoch min val loss.",
+    "loss": "CE phù hợp phân lớp hơn MSE logits/one-hot; chỉ so accuracy/F1, không so trị số loss khác thang.",
+    "optimizer": "Adam/AdamW có thể hội tụ nhanh hơn SGD; thử cùng lưới lr cho từng optimizer và so lr tốt nhất.",
+    "hyperparameter": "Batch 2048 giảm số bước/epoch bốn lần so batch 512, có thể làm học chậm với lr giữ nguyên.",
+    "dropout": "p=0.3 có thể giảm train-val gap nhưng giảm F1 nếu mạng chưa overfit.",
+    "clipping": "lr gấp 10 có thể gây dao động; clip ở phân vị 90 gradient baseline có thể giảm bước cực lớn, không chắc cứu được phân kỳ.",
+    "mixed_precision": "FP16/BF16 có thể không nhanh hơn với MLP nhỏ; T4 không có BF16 native, nên tốc độ BF16 chỉ là số đo emulation.",
+    "initialization": "He giữ tín hiệu qua ReLU tốt hơn normal nhỏ; zeros không phá đối xứng và gradient hidden bằng 0.",
+    "other": "Lặp cấu hình đã khoá ở seed 2/3 để đo nhiễu; không dùng các lần lặp để chọn lại cấu hình."
+  },
+  "checkpoint_dir": "/tmp/lab_revision_weights_j53t45o4",
+  "seed": 1,
+  "validation_seed": 42,
+  "epochs": 20,
+  "batch": 512,
+  "clip_rule": "baseline batch-gradient 90th percentile; high lr=10*selected baseline lr",
+  "final_seeds": [
+    1,
+    2,
+    3
+  ],
+  "no_eval_until_validation_selection": true,
+  "baseline_lr": 0.1,
+  "clip_threshold": 0.6962409436702729,
+  "selected_exp_id": "adam-lr0.003",
+  "selected_before_eval_utc": "2026-10-03T09:30:34Z"
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:17:27Z",
+  "prediction": "SGD momentum: lr thấp học chậm, lr cao có thể dao động; chọn lr bằng F1 val tại epoch min val loss.",
+  "cfg": {
+    "exp_id": "sgdm-lr0.01",
+    "group": "baseline",
+    "description": "SGD momentum: lr thấp học chậm, lr cao có thể dao động; chọn lr bằng F1 val tại epoch min val loss.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 0.01,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

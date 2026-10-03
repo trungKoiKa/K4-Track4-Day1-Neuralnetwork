@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:27:35Z",
+  "prediction": "FP16/BF16 có thể không nhanh hơn với MLP nhỏ; T4 không có BF16 native, nên tốc độ BF16 chỉ là số đo emulation.",
+  "cfg": {
+    "exp_id": "precision-fp16",
+    "group": "mixed_precision",
+    "description": "FP16/BF16 có thể không nhanh hơn với MLP nhỏ; T4 không có BF16 native, nên tốc độ BF16 chỉ là số đo emulation.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 0.1,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp16",
+    "seed": 1
+  }
+}

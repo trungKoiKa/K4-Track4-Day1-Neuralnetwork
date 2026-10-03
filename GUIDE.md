@@ -2,6 +2,8 @@
 
 Đọc [`README.md`](README.md) (luật chơi, sản phẩm nộp) và [`RUBRIC.md`](RUBRIC.md) trước. Tài liệu này chỉ **gợi ý và nêu tiêu chí kiểm tra**, không đưa code hoàn chỉnh. Bạn tự viết code.
 
+Ghi chú bản repo đã làm bài: các đoạn mô tả pseudo-code/TODO dưới đây thuộc hướng dẫn gốc. Các module trong `code/` đã được triển khai; notebook chạy lại theo Part 0–4 và baseline vẫn tuân theo mục 2b của hướng dẫn này.
+
 **Số lượng thí nghiệm là tuỳ bạn.** Part 3 là *menu gợi ý*, không phải danh sách bắt buộc. Điểm dựa vào chất lượng thiết kế thí nghiệm, độ phủ chủ đề và chất lượng kết luận (xem RUBRIC), không dựa vào việc chạy cho đủ N lần.
 
 **Về các con số tham chiếu:** những mốc sau chắc chắn đúng về mặt toán/dữ liệu: loss bước 0 ≈ ln 7 ≈ 1,946; "đoán luôn lớp 1 (nhãn gốc 2)" cho accuracy 0,4876 và macro-F1 chỉ ≈ 0,094 trên eval. Ngoài ra giảng viên đã chạy vài lần tham chiếu (1 seed, 1 máy) để đặt mức điểm eval, xem mục *Cách đánh giá* bên dưới. Đó là mốc để bạn biết mình đang ở đâu, không phải đáp án.

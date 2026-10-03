@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:25:20Z",
+  "prediction": "p=0.3 có thể giảm train-val gap nhưng giảm F1 nếu mạng chưa overfit.",
+  "cfg": {
+    "exp_id": "dropout-p03",
+    "group": "dropout",
+    "description": "p=0.3 có thể giảm train-val gap nhưng giảm F1 nếu mạng chưa overfit.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 0.1,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.3,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

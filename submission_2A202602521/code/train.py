@@ -167,11 +167,13 @@ def run_experiment(cfg: dict, data: dict) -> dict:
     scaler = torch.amp.GradScaler("cuda", enabled=use_amp and cfg["precision"] == "fp16")
     generator = torch.Generator(device=device).manual_seed(cfg["seed"])
     step0 = evaluate(model, data["X_val"], data["y_val"], cfg["loss"])["loss"]
-    history = {key: [] for key in ("epoch", "train_loss", "val_loss", "val_acc", "val_macro_f1", "grad_norm", "epoch_time_s")}
+    history = {key: [] for key in ("epoch", "train_loss", "val_loss", "val_acc", "val_macro_f1", "grad_norm", "clip_fraction", "epoch_time_s")}
+    all_norms = []
     best_loss, best_epoch, best_state, diverged = math.inf, 0, None, False
     if device.type == "cuda":
         torch.cuda.reset_peak_memory_stats(device)
     for epoch in range(1, cfg["epochs"] + 1):
+        if device.type == "cuda": torch.cuda.synchronize(device)
         begin = time.perf_counter()
         model.train()
         norms = []
@@ -199,6 +201,9 @@ def run_experiment(cfg: dict, data: dict) -> dict:
         history["val_acc"].append(val_scores["acc"])
         history["val_macro_f1"].append(val_scores["macro_f1"])
         history["grad_norm"].append(float(np.mean(norms)) if norms else float("nan"))
+        all_norms.extend(norms)
+        history["clip_fraction"].append(float(np.mean(np.asarray(norms) > cfg["clip_norm"])) if norms and cfg["clip_norm"] is not None else 0.0)
+        if device.type == "cuda": torch.cuda.synchronize(device)
         history["epoch_time_s"].append(time.perf_counter() - begin)
         if val_scores["loss"] < best_loss:
             best_loss, best_epoch = val_scores["loss"], epoch
@@ -212,6 +217,7 @@ def run_experiment(cfg: dict, data: dict) -> dict:
         "time_per_epoch_s": float(np.mean(history["epoch_time_s"])),
         "peak_mem_MB": (torch.cuda.max_memory_allocated(device) / 1024**2 if device.type == "cuda" else 0.0),
         "diverged": diverged,
+        "grad_p90": float(np.percentile(all_norms, 90)) if all_norms else 0.0,
     }
     return {"cfg": cfg, "history": history, "summary": summary, "best_state": best_state}
 

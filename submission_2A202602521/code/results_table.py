@@ -13,6 +13,7 @@ Tên cột của sheet "Experiments" (giữ nguyên, đúng thứ tự mẫu):
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 import shutil
 
@@ -23,7 +24,18 @@ def save_result(result: dict, results_dir: str = "../results") -> str:
     root = Path(results_dir); root.mkdir(parents=True, exist_ok=True)
     payload = {key: result[key] for key in ("cfg", "history", "summary")}
     path = root / f"{result['cfg']['exp_id']}.json"
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    nonfinite = {}
+    for key, values in payload['history'].items():
+        indices = [i + 1 for i, value in enumerate(values) if isinstance(value, float) and not math.isfinite(value)]
+        if indices: nonfinite[key] = indices
+    if nonfinite:
+        payload['summary'] = {**payload['summary'], 'nonfinite_history_epochs': nonfinite}
+    def finite_json(value):
+        if isinstance(value, dict): return {k: finite_json(v) for k, v in value.items()}
+        if isinstance(value, (list, tuple)): return [finite_json(v) for v in value]
+        if isinstance(value, float) and not math.isfinite(value): return None
+        return value
+    path.write_text(json.dumps(finite_json(payload), indent=2, allow_nan=False), encoding="utf-8")
     return str(path)
 
 

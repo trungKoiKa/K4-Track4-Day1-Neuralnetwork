@@ -35,7 +35,8 @@ def plot_run(result: dict, path: str) -> None:
         axes[2].axhline(cfg["clip_norm"], color="crimson", ls="--", label="clip threshold")
     axes[2].set(title="Gradient norm before clipping", xlabel="Epoch", ylabel="L2 norm")
     for ax in axes: ax.grid(alpha=.25); ax.legend()
-    fig.suptitle(f"{cfg['exp_id']} | {cfg['optimizer']} lr={cfg['lr']} | dropout={cfg['dropout']} | {cfg['precision']}")
+    fig.suptitle(f"{cfg['exp_id']} | {cfg['optimizer']} lr={cfg['lr']} batch={cfg['batch']} | "
+                 f"init={cfg['init']} dropout={cfg['dropout']} clip={cfg['clip_norm']} {cfg['precision']}")
     fig.tight_layout(); fig.savefig(path, dpi=150, bbox_inches="tight"); plt.close(fig)
 
 

@@ -3,6 +3,8 @@
 **Track 4 · Ngày 1 · VinUniversity AICB 2026**
 Bài học liên quan: *Mạng Nơ-ron và Huấn Luyện* (slide Day 1).
 
+**Trạng thái repo:** `code/` hiện chứa phần triển khai của Hoàng Trung Anh (2A202602521). Bài nộp và notebook có output nằm trong `submission_2A202602521/`. Nội dung yêu cầu bên dưới giữ theo đề gốc; các đoạn nói “khung pseudo-code” mô tả trạng thái ban đầu. Quy trình chạy lại nằm trong `code/lab.ipynb`, dùng Google Colab T4.
+
 > Câu hỏi của bài học: *"Một mạng có loss không giảm sau 2 000 bước huấn luyện. Lỗi nằm ở dữ liệu, ở kiến trúc, hay ở vòng lặp huấn luyện?"*
 > Sau lab này bạn phải tự trả lời được câu hỏi đó **bằng số liệu do chính bạn đo**.
 

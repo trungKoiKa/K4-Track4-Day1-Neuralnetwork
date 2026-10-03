@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:27:02Z",
+  "prediction": "lr gấp 10 có thể gây dao động; clip ở phân vị 90 gradient baseline có thể giảm bước cực lớn, không chắc cứu được phân kỳ.",
+  "cfg": {
+    "exp_id": "highlr-clip",
+    "group": "clipping",
+    "description": "lr gấp 10 có thể gây dao động; clip ở phân vị 90 gradient baseline có thể giảm bước cực lớn, không chắc cứu được phân kỳ.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 1.0,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": 0.6962409436702729,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:25:06Z",
+  "prediction": "Batch 2048 giảm số bước/epoch bốn lần so batch 512, có thể làm học chậm với lr giữ nguyên.",
+  "cfg": {
+    "exp_id": "batch2048",
+    "group": "hyperparameter",
+    "description": "Batch 2048 giảm số bước/epoch bốn lần so batch 512, có thể làm học chậm với lr giữ nguyên.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 0.1,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 2048,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:20:52Z",
+  "prediction": "CE phù hợp phân lớp hơn MSE logits/one-hot; chỉ so accuracy/F1, không so trị số loss khác thang.",
+  "cfg": {
+    "exp_id": "loss-mse",
+    "group": "loss",
+    "description": "CE phù hợp phân lớp hơn MSE logits/one-hot; chỉ so accuracy/F1, không so trị số loss khác thang.",
+    "loss": "mse",
+    "optimizer": "sgd_momentum",
+    "lr": 0.1,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

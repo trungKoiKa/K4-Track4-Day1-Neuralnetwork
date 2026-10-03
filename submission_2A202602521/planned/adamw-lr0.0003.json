@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:23:16Z",
+  "prediction": "Adam/AdamW có thể hội tụ nhanh hơn SGD; thử cùng lưới lr cho từng optimizer và so lr tốt nhất.",
+  "cfg": {
+    "exp_id": "adamw-lr0.0003",
+    "group": "optimizer",
+    "description": "Adam/AdamW có thể hội tụ nhanh hơn SGD; thử cùng lưới lr cho từng optimizer và so lr tốt nhất.",
+    "loss": "ce",
+    "optimizer": "adamw",
+    "lr": 0.0003,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}

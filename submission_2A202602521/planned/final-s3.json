@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:31:11Z",
+  "prediction": "Lặp cấu hình đã khoá ở seed 2/3 để đo nhiễu; không dùng các lần lặp để chọn lại cấu hình.",
+  "cfg": {
+    "exp_id": "final-s3",
+    "group": "other",
+    "description": "Fixed validation-selected config repeated for noise; no retuning.",
+    "loss": "ce",
+    "optimizer": "adam",
+    "lr": 0.003,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "he",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 3
+  }
+}

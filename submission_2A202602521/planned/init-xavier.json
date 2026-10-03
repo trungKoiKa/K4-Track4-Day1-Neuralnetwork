@@ -1,0 +1,25 @@
+{
+  "recorded_before_run_utc": "2026-10-03T09:30:00Z",
+  "prediction": "He giữ tín hiệu qua ReLU tốt hơn normal nhỏ; zeros không phá đối xứng và gradient hidden bằng 0.",
+  "cfg": {
+    "exp_id": "init-xavier",
+    "group": "initialization",
+    "description": "He giữ tín hiệu qua ReLU tốt hơn normal nhỏ; zeros không phá đối xứng và gradient hidden bằng 0.",
+    "loss": "ce",
+    "optimizer": "sgd_momentum",
+    "lr": 0.1,
+    "weight_decay": 0.0,
+    "momentum": 0.9,
+    "batch": 512,
+    "epochs": 20,
+    "hidden": [
+      256,
+      128
+    ],
+    "dropout": 0.0,
+    "init": "xavier",
+    "clip_norm": null,
+    "precision": "fp32",
+    "seed": 1
+  }
+}
